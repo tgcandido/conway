@@ -13,7 +13,7 @@ long int get_file_size(FILE*);
 void set_grid_position(int**, int, offset_position*);
 int get_number(char*, int*);
 
-bool set_config(char* config_name, int** grid, int mid_point) {
+bool set_config(char* config_name, int** grid, int size) {
   FILE* config_file = fopen("g_config", "r");
 
   if (!config_file) {
@@ -26,6 +26,7 @@ bool set_config(char* config_name, int** grid, int mid_point) {
   offset_position* offset_pos =
       (offset_position*)malloc(sizeof(offset_position));
   int offset;
+  int mid_point = size / 2;
   bool row_copied = false;
 
   fread(buffer, 1, file_size, config_file);
