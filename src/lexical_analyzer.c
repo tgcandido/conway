@@ -107,7 +107,6 @@ p_config_list_node get_tk_list(const char* config) {
       if (!head_tk) {
         head_tk = current_tk;
         prev_tk = head_tk;
-        head_tk->next = NULL;
       } else {
         prev_tk->next = current_tk;
         prev_tk = current_tk;

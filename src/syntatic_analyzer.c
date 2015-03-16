@@ -12,9 +12,9 @@ R -> , L | e
 
 p_config_pair current_pair;
 uint8_t** grid;
-int32_t size;
+int8_t size;
 
-int analyze(p_config_pair cp, uint8_t** g, int32_t s) {
+int analyze(p_config_pair cp, uint8_t** g, int8_t s) {
   current_pair = cp;
   grid = g;
   size = s;
@@ -57,8 +57,7 @@ int C() {
 }
 
 int L() {
-  if (P() && R())
-    return 1;
+  if (P() && R()) return 1;
   return 0;
 }
 

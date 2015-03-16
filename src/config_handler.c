@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <inttypes.h>
-#include "g_config_handler.h"
+#include "config_handler.h"
 #include "lexical_analyzer.h"
 #include "syntatic_analyzer.h"
 
@@ -11,7 +11,7 @@ uint32_t get_file_size(FILE*);
 char* get_configs();
 void load_configs();
 bool config_exists(const char*);
-bool set_grid_positions(uint8_t**, int32_t);
+bool set_grid_positions(uint8_t**, int8_t);
 
 p_config_list_node available_configs;
 p_config_pair selected_config;
@@ -24,7 +24,7 @@ uint32_t get_file_size(FILE* file) {
 }
 
 char* get_configs() {
-  FILE* config_file = fopen("../cfg/g_config", "r");
+  FILE* config_file = fopen("cfg/g_config", "r");
 
   if (!config_file) {
     printf("error opening file");
@@ -55,7 +55,7 @@ bool config_exists(const char* config) {
   return false;
 }
 
-bool set_grid_positions(uint8_t** grid, int32_t size) {
+bool set_grid_positions(uint8_t** grid, int8_t size) {
   return analyze(selected_config, grid, size);
 }
 

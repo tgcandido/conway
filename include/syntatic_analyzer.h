@@ -2,7 +2,7 @@
 
 #include "lexical_analyzer.h"
 
-int analyze(p_config_pair, uint8_t**, int32_t);
+int analyze(p_config_pair, uint8_t**, int8_t);
 int C();
 int L();
 int P();
