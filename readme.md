@@ -15,7 +15,7 @@ example: `./conway gli 15`
 adding configurations
 ============ 
 - the accepted grammar is `name:[pair_list];`
-- each pair is defined by `(a,b)`, where `a` and `b` are integers, and the values represent a living cell in the position [size/2 + a][size/2 + b] of the board. 
+- each pair is defined by `(a,b)`, where `a` and `b` are integers, and the values represent a living cell in the position `[size/2 + a][size/2 + b]` of the board. 
 - the pairs are separated by `,`
 
 example: `gli:[(0,0),(0,-1),(0,1),(-1,1),(-2,0)];` 
@@ -23,7 +23,7 @@ example: `gli:[(0,0),(0,-1),(0,1),(-1,1),(-2,0)];`
 dependencies
 ============
 developed with:
-- sublime text 3 with clang-format-3.5
+- sublime text 3 with clang-format-3.5 (google style)
 
 tested on:
 - ubuntu 14.10 with gcc 4.9.1 
