@@ -42,7 +42,8 @@ bool config_exists(p_config_list_node available_configs, const char* config) {
   return false;
 }
 
-p_config_pair get_config(p_config_list_node available_configs, const char* config) {
+p_config_pair get_config(p_config_list_node available_configs,
+                         const char* config) {
   p_config_list_node aux = available_configs;
   while (aux) {
     if (strcmp(aux->config->value, config) == 0) {

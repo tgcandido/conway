@@ -11,9 +11,9 @@ int main(int32_t argc, char** argv) {
   conways_board->grid = alloc_grid(args->grid_size);
   p_config_list_node configs = load_configs();
 
-  if (config_exists(configs,args->config)){
+  if (config_exists(configs, args->config)) {
     p_config_pair selected_config = get_config(configs, args->config);
-    if (analyze_and_set_positions(selected_config, conways_board)){
+    if (analyze_and_set_positions(selected_config, conways_board)) {
       play(conways_board);
       puts("\t\tGAME OVER!!!!\n");
       free_game_resources(configs, conways_board);
@@ -42,11 +42,9 @@ input_args* handle_commands(uint32_t argc, char** argv) {
     input_args* args = (input_args*)malloc(sizeof(input_args));
     args->config = command_string;
 
-    if (argc > 2)
-      args->grid_size = atoi(argv[2]);
-    
-    if (argc <= 2 || args->grid_size > 50)
-      args->grid_size = DEFAULT_GRID_SIZE;
+    if (argc > 2) args->grid_size = atoi(argv[2]);
+
+    if (argc <= 2 || args->grid_size > 50) args->grid_size = DEFAULT_GRID_SIZE;
 
     return args;
   }
@@ -57,7 +55,9 @@ void print_help() {
       "\t enter the command name followed by the size of the grid - "
       "example: ./conway gli 15 \n");
   puts("\t read available commands on ./cfg/g_config\n");
-  puts("\t as conway's game of life is unpredictable, the game can go on forever. press ctrl+c to exit\n");
+  puts(
+      "\t as conway's game of life is unpredictable, the game can go on "
+      "forever. press ctrl+c to exit\n");
 }
 
 uint8_t** alloc_grid(int8_t size) {
@@ -69,7 +69,8 @@ uint8_t** alloc_grid(int8_t size) {
   return grid;
 }
 
-void free_game_resources(p_config_list_node configs, p_game_board conways_board){
+void free_game_resources(p_config_list_node configs,
+                         p_game_board conways_board) {
   for (int8_t i = 0; i < conways_board->size; ++i) {
     uint8_t* row = conways_board->grid[i];
     free(row);

@@ -10,14 +10,14 @@
 #endif
 
 void sleep_ms(int32_t ms) {
-  #ifdef __linux__
+#ifdef __linux__
   struct timespec ts_struct;
   ts_struct.tv_sec = 0;
   ts_struct.tv_nsec = ms * 1000000;
   nanosleep(&ts_struct, NULL);
-  #elif _WIN32
+#elif _WIN32
   Sleep(ms);
-  #endif
+#endif
 }
 
 bool out_of_bounds(uint8_t line, uint8_t column, uint8_t max) {
@@ -88,7 +88,8 @@ void play(p_game_board conways_board) {
   p_game_cell cell = (p_game_cell)malloc(sizeof(game_cell));
 
   while (has_living_cells(conways_board)) {
-    memset(aux_grid, 0, conways_board->size * conways_board->size * sizeof(uint8_t));
+    memset(aux_grid, 0,
+           conways_board->size * conways_board->size * sizeof(uint8_t));
     for (int8_t line = 0; line < conways_board->size; ++line) {
       for (int8_t column = 0; column < conways_board->size; ++column) {
         cell->line = line;
