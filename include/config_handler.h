@@ -1,10 +1,12 @@
 #pragma once
 
-#include <stdio.h>
 #include <stdbool.h>
-#include <inttypes.h>
+#include "board.h"
+#include "lexical_analyzer.h"
+#include "syntatic_analyzer.h"
 
-void load_configs();
-bool config_exists(const char*);
-bool set_grid_positions(uint8_t**, int8_t);
-void free_cfg_resources();
+uint32_t get_file_size(FILE*);
+char* get_configs();
+p_config_list_node load_configs();
+bool config_exists(p_config_list_node, const char*);
+p_config_pair get_config(p_config_list_node, const char*);

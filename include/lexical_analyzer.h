@@ -10,8 +10,8 @@ enum TK {
   TK_colon,
   TK_openBracket,
   TK_closeBracket,
-  TK_openCB,
-  TK_closeCB,
+  TK_openP,
+  TK_closeP,
   TK_comma,
   TK_digit,
   TK_end_config,
@@ -25,6 +25,7 @@ struct tk_value_pair {
   struct tk_value_pair* next;
 } typedef config_pair;
 typedef config_pair* p_config_pair;
+typedef p_config_pair* p2_config_pair;
 
 struct cfg_list_node {
   p_config_pair config;

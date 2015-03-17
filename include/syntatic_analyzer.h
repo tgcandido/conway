@@ -1,11 +1,13 @@
 #pragma once
 
+#include <stdbool.h>
+#include "board.h"
 #include "lexical_analyzer.h"
 
-int analyze(p_config_pair, uint8_t**, int8_t);
-int C();
-int L();
-int P();
-int R();
-void next_pair();
-void set_position(int32_t, int32_t);
+bool analyze_and_set_positions(p_config_pair, p_game_board);
+bool C(p_config_pair, p_game_board);
+bool L(p2_config_pair, p_game_board);
+bool P(p2_config_pair, p_game_board);
+bool R(p2_config_pair, p_game_board);
+void next_pair(p2_config_pair);
+bool set_position(p_game_board, int32_t, int32_t);

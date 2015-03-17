@@ -4,9 +4,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <string.h>
-#include <inttypes.h>
+#include <ctype.h>
 #include "lexical_analyzer.h"
 
 void free_cfg_list(p_config_list_node cfg_list) {
@@ -41,14 +40,14 @@ p_config_pair get_tk(const char* config, uint16_t* p) {
     (*p)++;
     buffer[local_pos] = ':';
     ret_tk->tk = TK_colon;
-  } else if (config[*p] == '{') {
+  } else if (config[*p] == '(') {
     (*p)++;
-    buffer[local_pos] = '{';
-    ret_tk->tk = TK_openCB;
-  } else if (config[*p] == '}') {
+    buffer[local_pos] = '(';
+    ret_tk->tk = TK_openP;
+  } else if (config[*p] == ')') {
     (*p)++;
-    buffer[local_pos] = '}';
-    ret_tk->tk = TK_closeCB;
+    buffer[local_pos] = ')';
+    ret_tk->tk = TK_closeP;
   } else if (config[*p] == '[') {
     (*p)++;
     buffer[local_pos] = '[';
@@ -83,8 +82,8 @@ p_config_pair get_tk(const char* config, uint16_t* p) {
   }
 
   if (ret_tk->tk == TK_not_recognized) {
-    puts("fatal error parsing the configuration\n");
-    exit(1);
+    puts("\tfatal error parsing the configuration\n");
+    exit(EXIT_FAILURE);
   }
 
   buffer[++local_pos] = 0;

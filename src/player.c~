@@ -110,7 +110,7 @@ void play(p_game_board conways_board) {
     }
 
 #ifdef __linux__
-    system("clear");
+    int ret = system("clear");
 #elif _WIN32
     system("cls");
 #endif
